@@ -4,7 +4,12 @@ public class GirlsCashApplication {
     public static void main(String[] args) {
 
         Scanner leitor = new Scanner(System.in);
+        /*
+        Cliente cliente = new Cliente();
 
+        ContaGirlsCash contaGirlsCash = new ContaGirlsCash(cliente, 1234);
+        contaGirlsCash.solicitarEmprestimo(200.00);
+        */
         System.out.println("✨ Bem-vinda ao GirlsCash-Engine ✨\n");
         // [Etapa 01] Cálculo de Encargos e Juros do Rotativo
         double saldoInicial = 50.00;

@@ -57,13 +57,6 @@ public class Cliente {
     //não precisa adicionar variavel de parametro porque estamos dentro de cliente
     //se fosse fora iria precisar (boolean negativado, int score)
     public boolean eElegivelParaCredito() {
-        /*if (!negativado && score >= 600) {
-            return true;
-        } else {
-            return false;
-        }
-
-         */
         //retorna o sim ou não se não for negativado e o score for maior ou igual a 600
     return !negativado && score >= 600;
     }

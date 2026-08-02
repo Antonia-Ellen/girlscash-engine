@@ -1,15 +1,30 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 public class GirlsCashApplication {
 
     public static void main(String[] args) {
 
         Scanner leitor = new Scanner(System.in);
-        /*
+
         Cliente cliente = new Cliente();
+        cliente.setNome("Maria");
+        cliente.setCPF("123123123");
+        cliente.setScore(300);
+        cliente.setNegativado(false);
 
         ContaGirlsCash contaGirlsCash = new ContaGirlsCash(cliente, 1234);
-        contaGirlsCash.solicitarEmprestimo(200.00);
-        */
+        System.out.println("Bem vinda: " + cliente.getNome() +" CPF: "+ cliente.getCpf());
+        System.out.println("Digite o valor que deseja solicitar emprestado: ");
+        double valorEmprestimo = leitor.nextDouble();
+        if (contaGirlsCash.solicitarEmprestimo(valorEmprestimo)){
+            System.out.println("Você está elegível para Credito!");
+            System.out.println("Empréstimo de R$" + valorEmprestimo + " realizado com sucesso!");
+        }else {
+            System.out.println("Você não está elegível para Credito!");
+        }
+
+
+        /*
         System.out.println("✨ Bem-vinda ao GirlsCash-Engine ✨\n");
         // [Etapa 01] Cálculo de Encargos e Juros do Rotativo
         double saldoInicial = 50.00;
@@ -121,5 +136,7 @@ public class GirlsCashApplication {
                 }
             }
         }
+        */
     }
+
 }

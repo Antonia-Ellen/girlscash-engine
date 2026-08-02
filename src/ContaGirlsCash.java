@@ -9,6 +9,10 @@ public class ContaGirlsCash {
         this.pin = pin;
     }
 
+    public double mostrarSaldo() {
+       return this.saldo;
+    }
+
     //metodo para receber um valor de depósito
     //não precisa retornar o valor = void
     public void depositar(double valor){

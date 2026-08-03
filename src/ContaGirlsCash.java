@@ -1,5 +1,5 @@
 public class ContaGirlsCash {
-   private Cliente cliente;
+    private Cliente cliente;
     private double saldo;
     private double limiteCredito;
     private int pin;
@@ -9,6 +9,17 @@ public class ContaGirlsCash {
         this.pin = pin;
     }
 
+    public double getsaldo(){
+        return this.saldo;
+    }
+
+    public double getlimiteCredito(){
+        return this.limiteCredito;
+    }
+
+    public Cliente getCliente(){
+        return this.cliente;
+    }
     public double mostrarSaldo() {
        return this.saldo;
     }
@@ -20,9 +31,10 @@ public class ContaGirlsCash {
     }
 
     //método para sacar um valor passado por parâmetro
-    //que deve retornar um boolean (true/false)
-    public boolean sacar(double valor){
-        if (valor <= saldo){
+    //se a senha estiver correta e tiver saldo
+    // deve retornar um boolean (true/false)
+    public boolean sacar(int PIN, double valor){
+        if (analisarPin(PIN) && valor <= saldo){
             saldo -= valor;
             return true;
         }else{
@@ -37,5 +49,10 @@ public class ContaGirlsCash {
         }else {
             return false;
         }
+     }
+
+     //método para analisar se a senha digitado está correta
+     public boolean analisarPin(int valorPin){
+        return this.pin == valorPin;
      }
 }

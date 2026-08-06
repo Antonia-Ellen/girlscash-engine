@@ -12,16 +12,18 @@ public class ContaGirlsCash {
     public double getsaldo(){
         return this.saldo;
     }
-
     public double getlimiteCredito(){
         return this.limiteCredito;
     }
-
     public Cliente getCliente(){
         return this.cliente;
     }
     public double mostrarSaldo() {
        return this.saldo;
+    }
+
+    public int definirSenha(int senha){
+        return this.pin;
     }
 
     //metodo para receber um valor de depósito

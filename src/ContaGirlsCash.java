@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class ContaGirlsCash {
     private Cliente cliente;
     private double saldo;
     private double limiteCredito;
     private int pin;
+    private List<String> extrato =  new ArrayList<>();
 
     public ContaGirlsCash (Cliente Cliente, int pin) {
         this.cliente = Cliente;
@@ -30,6 +34,7 @@ public class ContaGirlsCash {
     //não precisa retornar o valor = void
     public void depositar(double valor){
         saldo += valor;
+        extrato.add("R$" + valor + " depositado com sucesso!");
     }
 
     //método para sacar um valor passado por parâmetro
@@ -38,6 +43,7 @@ public class ContaGirlsCash {
     public boolean sacar(int PIN, double valor){
         if (analisarPin(PIN) && valor <= saldo){
             saldo -= valor;
+            extrato.add("R$" + valor + " sacado com sucesso!");
             return true;
         }else{
             return false;
@@ -47,6 +53,7 @@ public class ContaGirlsCash {
      public boolean solicitarEmprestimo(double valor){
         if(cliente.eElegivelParaCredito()) {
             saldo += valor;
+            extrato.add("Empréstimo de R$" + valor + " foi solicitado com sucesso!");
             return true;
         }else {
             return false;
@@ -56,5 +63,11 @@ public class ContaGirlsCash {
      //método para analisar se a senha digitado está correta
      public boolean analisarPin(int valorPin){
         return this.pin == valorPin;
+     }
+
+     public void mostrarExtrato(){
+        for (String movimentacao:extrato) {
+            System.out.println(movimentacao);
+        }
      }
 }

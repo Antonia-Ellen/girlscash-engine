@@ -1,8 +1,9 @@
+import java.sql.SQLException;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 public class GirlsCashApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SenhaInvalidaException, SaldoInsuficienteException{
 
         Scanner leitor = new Scanner(System.in);
 
@@ -53,8 +54,18 @@ public class GirlsCashApplication {
                         break;
                         case 3:
                             System.out.println("Digite o valor a ser sacado: ");
-                            double valorSacado = leitor.nextDouble();
-                            contaGirlsCash.sacar (senha, valorSacado);
+                            double valorASerSacado = leitor.nextDouble();
+                            System.out.println("Digite sua senha: ");
+                            int senhaParaSaque =  leitor.nextInt();
+                            try {
+                                contaGirlsCash.sacar(senhaParaSaque, valorASerSacado);
+                                System.out.println("Saque realizado com sucesso!");
+                            }catch (SenhaInvalidaException e){
+                                System.out.println(e.getMessage());
+                            }
+                            catch (SaldoInsuficienteException e){
+                                System.out.println(e.getMessage());
+                            }
                             break;
                             case 4:
                                 System.out.println("Digite o valor que deseja solicitar emprestado: ");
@@ -80,7 +91,6 @@ public class GirlsCashApplication {
             System.out.println("0 - Sair:");
             opcaoEscolhida = leitor.nextInt();
         }
-
+        contaGirlsCash.salvarExtratoEmArquivo();
     }
-
 }

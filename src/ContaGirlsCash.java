@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class ContaGirlsCash {
     private Cliente cliente;
@@ -40,13 +42,17 @@ public class ContaGirlsCash {
     //método para sacar um valor passado por parâmetro
     //se a senha estiver correta e tiver saldo
     // deve retornar um boolean (true/false)
-    public boolean sacar(int PIN, double valor){
-        if (analisarPin(PIN) && valor <= saldo){
-            saldo -= valor;
+    public void sacar (int PIN, double valor) throws SenhaInvalidaException, SaldoInsuficienteException{
+        if (!analisarPin(PIN)) {
+            SenhaInvalidaException senhaInvalida = new SenhaInvalidaException();
+            throw senhaInvalida;
+        }
+        if (!(valor <= saldo)) {
+            SaldoInsuficienteException erro = new SaldoInsuficienteException();
+            throw erro;
+        } else {
+        saldo -= valor;
             extrato.add("R$" + valor + " sacado com sucesso!");
-            return true;
-        }else{
-            return false;
         }
     }
 
@@ -70,4 +76,16 @@ public class ContaGirlsCash {
             System.out.println(movimentacao);
         }
      }
-}
+
+     public void salvarExtratoEmArquivo() {
+             try (FileWriter myWriter = new FileWriter("HistoricoGirlsCashEngine.txt")) {
+                 for (String movimentacao:extrato){
+                     myWriter.write(movimentacao + "\n");
+                 }
+                 System.out.println("Arquivo salvo com sucesso!");
+             } catch (IOException e) {
+                 System.out.println("Houve um um erro ao salvar o arquivo!");
+                 e.printStackTrace();
+             }
+         }
+     }

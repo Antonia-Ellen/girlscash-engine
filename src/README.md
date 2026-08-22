@@ -1,45 +1,60 @@
-# 🌸 GirlsCash — Sistema Bancário em Java
+Markdown
+# 🌸 GirlsCash Engine — Sistema Bancário em Java
 
-O **GirlsCash** é uma aplicação Java de console que simula o funcionamento de um caixa eletrônico interativo. O projeto foi desenvolvido com foco na aplicação prática de Programação Orientada a Objetos (POO), validação de regras de negócio e controle de fluxo.
+O **GirlsCash Engine** é uma aplicação Java de console que simula um terminal bancário/caixa eletrônico interativo. O projeto foi desenvolvido com foco no domínio de **Programação Orientada a Objetos (POO)**, validação de regras de negócio, tratamento robusto de exceções e persistência de dados.
 
 ---
 
 ## 🚀 Funcionalidades
 
-- **Cadastro Interativo:** Leitura de dados do cliente e definição de senha de 4 dígitos via terminal.
-- **Validação de Segurança:** Trava com laço `while` para garantir que a senha cadastrada possua estritamente 4 dígitos antes de gravar no sistema.
-- **Consulta de Saldo:** Exibição imediata do saldo disponível na conta.
-- **Depósito e Saque:** Atualização de saldo com validação prévia de senha e saldo suficiente para operações de saque.
-- **Análise de Crédito (Empréstimo):** Sistema de elegibilidade para liberação de empréstimo.
-- **Extrato Bancário:** Histórico de movimentações em tempo real utilizando coleções dinâmicas (`List`/`ArrayList`).
+- **Abertura de Conta & Segurança:** Cadastro com titular, agência, conta e autenticação via PIN de 4 dígitos.
+- **Operações Financeiras:** Depósitos e saques com validação em tempo real de saldo e credenciais.
+- **Simulação de Empréstimo:** Avaliação de elegibilidade baseada em regras prévias de movimentação.
+- **Histórico & Extrato Dinâmico:** Rastreamento de todas as transações realizadas durante a sessão utilizando `ArrayList`.
+- **Tratamento de Exceções Personalizadas:** Controle de falhas críticas de negócio sem interrupção abrupta do sistema.
+- **Persistência em Arquivo (.txt):** Salvamento automático do histórico de transações em disco (`HistoricoGirlsCashEngine.txt`) ao encerrar a execução.
 
 ---
 
-## 🛠️ Tecnologias e Conceitos Aplicados
+## 🛠️ Tecnologias & Conceitos Aplicados
 
 - **Linguagem:** Java (JDK 17+)
-- **Orientação a Objetos:** Classes, Objetos, Encapsulamento (`private`/`public`) e Construtores.
-- **Estruturas de Dados:** `List` e `ArrayList` para histórico de extrato.
-- **Estruturas de Controle:** `while`, `do-while`, `switch-case` e `for-each`.
-- **Entrada de Dados:** `java.util.Scanner`.
-- **Versionamento:** Git & GitHub com fluxo de *Conventional Commits*.
+- **Paradigma:** Programação Orientada a Objetos (POO)
+- **Encapsulamento:** Modificadores de acesso e métodos de controle
+- **Estruturas de Dados:** `ArrayList` e laços de iteração `for-each`
+- **Controle de Exceções:**
+   - Criação de exceções checadas (`SaldoInsuficienteException` e `SenhaInvalidaException`)
+   - Estruturas de controle de fluxo com `throws`, `throw` e `try-catch`
+- **Manipulação de Arquivos (Java I/O):**
+   - Gravação de dados em arquivo físico com `FileWriter`
+   - Gerenciamento seguro de recursos com a instrução `try-with-resources`
+- **Versionamento:** Git & GitHub
 
 ---
 
-## 💻 Como Executar o Projeto
+💻 Como Executar o Projeto
+Clone o repositório:
 
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/Antonia-Ellen/girlscash-engine.git](https://github.com/Antonia-Ellen/girlscash-engine.git)
-Abra o projeto na sua IDE de preferência (IntelliJ IDEA ou VS Code).
+Bash
+git clone [https://github.com/Antonia-Ellen/girlscash-engine.git](https://github.com/Antonia-Ellen/girlscash-engine.git)
+Abra a pasta do projeto na sua IDE preferida (IntelliJ IDEA, VS Code ou Eclipse).
 
-Certifique-se de ter o JDK 17 (ou superior) configurado.
+Execute o arquivo Main.java.
 
-Execute a classe principal Main.java.
+Interaja com as opções do menu no console. Ao digitar 0 para sair, o histórico de movimentações será gravado automaticamente no arquivo HistoricoGirlsCashEngine.txt.
 
-👩‍💻 Autora & Mentoria
-Desenvolvido por Antônia Ellen
+👩‍💻 Autora
+Desenvolvido por Antônia Ellen.
 
-Estudante de Análise e Desenvolvimento de Sistemas (UNINASSAU) & Analista de Qualidade.
+Projeto desenvolvido com foco em aprimoramento de lógica, POO e boas práticas de desenvolvimento de software em Java.
 
-Projeto desenvolvido com a mentoria e auxílio prático do Gemini.
+## 📁 Estrutura do Projeto
+
+```text
+src/
+├── ContaGirlsCash.java               # Regras de negócio e operações da conta
+├── Main.java                         # Interface de terminal e fluxo do menu
+├── SaldoInsuficienteException.java   # Exceção para tentativas de saque acima do saldo
+├── SenhaInvalidaException.java       # Exceção de segurança para PIN incorreto
+└── HistoricoGirlsCashEngine.txt     # Arquivo gerado com o log de transações
+

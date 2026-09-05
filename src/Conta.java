@@ -3,15 +3,17 @@ import java.util.List;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ContaGirlsCash {
-    private Cliente cliente;
-    private double saldo;
-    private double limiteCredito;
-    private int pin;
-    private List<String> extrato =  new ArrayList<>();
+public class Conta {
+    protected Cliente titular;
+    protected String agencia;
+    protected String numeroConta;
+    protected double saldo;
+    protected double limiteCredito;
+    protected int pin;
+    protected List<String> extrato =  new ArrayList<>();
 
-    public ContaGirlsCash (Cliente Cliente, int pin) {
-        this.cliente = Cliente;
+    public Conta(Cliente titular, int pin) {
+        this.titular = titular;
         this.pin = pin;
     }
 
@@ -21,8 +23,8 @@ public class ContaGirlsCash {
     public double getlimiteCredito(){
         return this.limiteCredito;
     }
-    public Cliente getCliente(){
-        return this.cliente;
+    public Cliente getTitular(){
+        return this.titular;
     }
     public double mostrarSaldo() {
        return this.saldo;
@@ -57,7 +59,7 @@ public class ContaGirlsCash {
     }
 
      public boolean solicitarEmprestimo(double valor){
-        if(cliente.eElegivelParaCredito()) {
+        if(titular.eElegivelParaCredito()) {
             saldo += valor;
             extrato.add("Empréstimo de R$" + valor + " foi solicitado com sucesso!");
             return true;

@@ -52,7 +52,7 @@ Projeto desenvolvido com foco em aprimoramento de lógica, POO e boas práticas 
 
 ```text
 src/
-├── ContaGirlsCash.java               # Regras de negócio e operações da conta
+├── Conta.java               # Regras de negócio e operações da conta
 ├── Main.java                         # Interface de terminal e fluxo do menu
 ├── SaldoInsuficienteException.java   # Exceção para tentativas de saque acima do saldo
 ├── SenhaInvalidaException.java       # Exceção de segurança para PIN incorreto

@@ -54,7 +54,7 @@ public class Cliente {
         this.negativado = negativado;
     }
 
-    //não precisa adicionar variavel de parametro porque estamos dentro de cliente
+    //não precisa adicionar variavel de parametro porque estamos dentro de titular
     //se fosse fora iria precisar (boolean negativado, int score)
     public boolean eElegivelParaCredito() {
         //retorna o sim ou não se não for negativado e o score for maior ou igual a 600

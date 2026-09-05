@@ -14,6 +14,14 @@ O **GirlsCash Engine** é uma aplicação Java de console que simula um terminal
 - **Tratamento de Exceções Personalizadas:** Controle de falhas críticas de negócio sem interrupção abrupta do sistema.
 - **Persistência em Arquivo (.txt):** Salvamento automático do histórico de transações em disco (`HistoricoGirlsCashEngine.txt`) ao encerrar a execução.
 
+## 🏗️ Arquitetura e Conceitos Aplicados (Módulo 6)
+
+O sistema foi refatorado para suportar diferentes tipos de contas bancárias, aplicando os pilares da Programação Orientada a Objetos:
+
+* **Herança:** Criação de uma classe mãe genérica `Conta` para compartilhar atributos e métodos comuns com as classes filhas `ContaCorrente` e `ContaPoupanca`.
+* **Polimorfismo:** Sobrescrita (`@Override`) do método `sacar()` na `ContaCorrente` para incluir regras de negócio específicas (cobrança de taxa por saque).
+* **Encapsulamento (`protected`):** Atributos da classe mãe protegidos para serem manipulados apenas pelas classes filhas de forma segura.
+* **Casting (Downcasting):** Conversão dinâmica de tipos usando `instanceof` para acessar métodos exclusivos em tempo de execução (ex: método `render()` exclusivo da `ContaPoupanca`).
 ---
 
 ## 🛠️ Tecnologias & Conceitos Aplicados

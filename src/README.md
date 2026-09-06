@@ -23,6 +23,16 @@ O sistema foi refatorado para suportar diferentes tipos de contas bancárias, ap
 * **Encapsulamento (`protected`):** Atributos da classe mãe protegidos para serem manipulados apenas pelas classes filhas de forma segura.
 * **Casting (Downcasting):** Conversão dinâmica de tipos usando `instanceof` para acessar métodos exclusivos em tempo de execução (ex: método `render()` exclusivo da `ContaPoupanca`).
 ---
+## 🧪 Módulo 7: Testes Automatizados (Qualidade de Software)
+
+Para garantir a confiabilidade das regras financeiras do sistema e evitar regressões, foram implementados testes de unidade.
+
+* **Ferramenta:** JUnit 5.
+* **Padrão Aplicado:** AAA (Arrange, Act, Assert).
+* **Cenários Cobertos:**
+  * Validação da cobrança exata da taxa de saque na `ContaCorrente`.
+  * Prevenção de saques indevidos (Caminho Triste testando o lançamento da `SaldoInsuficienteException`).
+  * Cálculo preciso do método de rendimento da `ContaPoupanca`.
 
 ## 🛠️ Tecnologias & Conceitos Aplicados
 

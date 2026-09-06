@@ -90,8 +90,7 @@ public class GirlsCashApplication {
                                 break;
                                 case 5:
                                     if (tipoConta == 2){
-                                        ((ContaPoupanca)conta).render();
-                                    }
+                                     }
                                     break;
                                     case 6:
                                         conta.mostrarExtrato();
